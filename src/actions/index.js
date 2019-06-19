@@ -17,12 +17,12 @@ export const fetchSwapi = () => dispatch => {
 
     dispatch({type: FETCHING});
 
-    axios.get("https://swapi.co/api/people/")
+    axios.get("https://swapi.co/api/people/s")
 
         .then( ({data}) => {
             dispatch({type: SUCCESS, payload: data})
         } )
-        
+
         .catch( err => {
             dispatch({type: FAILURE, payload: err})
         } )

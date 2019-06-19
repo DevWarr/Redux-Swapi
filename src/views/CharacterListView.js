@@ -6,14 +6,9 @@ import { fetchSwapi } from "../actions";
 // import actions
 
 class CharacterListView extends React.Component {
-  constructor() {
-    super();
-  }
 
   componentDidMount() {
     // call our action
-    console.log("here");
-    console.log(fetchSwapi());
     this.props.fetchSwapi();
   }
 
@@ -23,6 +18,16 @@ class CharacterListView extends React.Component {
       return (
         <div className="loading">
           <h1>Loading . . .</h1>
+        </div>
+      );
+    }
+
+     else if (this.props.error) {
+      // return something here to indicate that you are fetching data
+      return (
+        <div className="error">
+          <h1>Error!</h1>
+          <p>{this.props.error}</p>
         </div>
       );
     }
@@ -37,8 +42,9 @@ class CharacterListView extends React.Component {
 
 const mstp = state => {
   return {
-    characters: state.charsReducer.characters,
-    fetching: state.charsReducer. fetching
+    characters:     state.charsReducer.characters,
+    fetching:       state.charsReducer.fetching,
+    error:          state.charsReducer.error
   }
 }
 
