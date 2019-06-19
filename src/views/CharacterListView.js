@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import { CharacterList } from "../components";
 import { fetchSwapi } from "../actions";
+import ReactLoader from "react-loader";
 // import actions
 
 class CharacterListView extends React.Component {
@@ -17,6 +18,7 @@ class CharacterListView extends React.Component {
       // return something here to indicate that you are fetching data
       return (
         <div className="loading">
+          <ReactLoader type="spinningBubbles" color="red" height={"50%"} weight={"50%"} />
           <h1>Loading . . .</h1>
         </div>
       );
