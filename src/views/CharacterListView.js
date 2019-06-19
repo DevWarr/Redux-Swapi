@@ -22,7 +22,7 @@ class CharacterListView extends React.Component {
       );
     }
 
-     else if (this.props.error) {
+    if (this.props.error) {
       // return something here to indicate that you are fetching data
       return (
         <div className="error">
